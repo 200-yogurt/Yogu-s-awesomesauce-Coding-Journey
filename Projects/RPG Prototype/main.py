@@ -1,11 +1,11 @@
 from config import *
-from Systems.utils import loading_time
+from Systems.utils import narrate
 from Systems.player import player_status, game_over
 from Systems.save_system import load_save_data
 from Systems.menu_system import menu_loop
 
 def main_loop():
-    loading_time("\n  .  .  .  Initiating Program  .  .  .  \n", speed["slow"])
+    narrate("\n  .  .  .  Initiating Program  .  .  .  \n", speed["slow"])
 
     load_save_data()
 

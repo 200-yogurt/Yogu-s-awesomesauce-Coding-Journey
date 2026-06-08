@@ -1,11 +1,11 @@
 import random
 from config import *
-from Systems.utils import loading_time
+from Systems.utils import narrate
 
 def explore():
     def find_gold():
         print("\nYou explored in search for Gold and...")
-        loading_time("", speed["slow"])
+        narrate("", speed["slow"])
 
         randomNum = random.randint(0, 50)
 
@@ -13,15 +13,15 @@ def explore():
             playerData["GOLD"] += randomNum
 
             print("You found Gold!")
-            loading_time("", speed["fast"])
+            narrate("", speed["fast"])
             print(f"- CONGRATULATIONS ADVENTURER, YOU HAVE FOUND {randomNum:03} GOLD")
         else:
             print("found nothing...")
-            loading_time("", speed["moderate"])
+            narrate("", speed["moderate"])
             print("- . . . UNLUCKY")
     def lose_health():
         print("\nYou explored in the wilderness and...")
-        loading_time("", speed["slow"])
+        narrate("", speed["slow"])
 
         randomNum = random.randint(0, playerData["HEALTH"])
 
@@ -29,24 +29,24 @@ def explore():
             playerData["HEALTH"] -= randomNum
 
             print("You got attacked by a creature!")
-            loading_time("", speed["fast"])
+            narrate("", speed["fast"])
             print(f"- OUCH. . . YOU HAVE LOST {randomNum} HP")
         else:
             print("Nothing happened")
     def healing_herb():
         print("\nYou explored in the wilderness and...")
-        loading_time("", speed["slow"])
+        narrate("", speed["slow"])
 
         randomNum = round(random.uniform(1, playerData["HEALTH"] * 0.87))
 
         playerData["HEALTH"] += randomNum
 
         print("You found a Healing Herb!")
-        loading_time("", speed["fast"])
+        narrate("", speed["fast"])
         print(f"- CONGRATULATIONS ADVENTURER, YOU HAVE GAINED {randomNum} HP")
     def nothing_happens():
         print("\nYou explored...")
-        loading_time("", speed["slow"])
+        narrate("", speed["slow"])
         print("but nothing relevant happened")
 
     events = [

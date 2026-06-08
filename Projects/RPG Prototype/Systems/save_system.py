@@ -1,6 +1,6 @@
 import os
 from config import *
-from Systems.utils import loading_time, intro_cutscene
+from Systems.utils import narrate, intro_cutscene
 
 def load_save_data():
     if os.path.exists(saveFilePath):
@@ -11,7 +11,7 @@ def load_save_data():
                     value = int(value)
                 playerData[key] = value
         print("\nSuccesfully Found & Loaded Save File")
-        loading_time("Loading. . .", speed["slow"])
+        narrate("Loading. . .", speed["slow"])
 
         intro_cutscene("old")
     else:
