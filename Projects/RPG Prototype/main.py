@@ -5,8 +5,7 @@ from Systems.save_system import load_save_data
 from Systems.menu_system import menu_loop
 
 def main_loop():
-    print("\n  .  .  .  Initiating Program  .  .  .  \n")
-    loading_time("", speed["moderate"])
+    loading_time("\n  .  .  .  Initiating Program  .  .  .  \n", speed["moderate"])
 
     load_save_data()
 
