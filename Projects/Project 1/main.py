@@ -5,7 +5,7 @@ import random
 
 # -- Variables & Misc. Functions
 isRunning = True
-saveFilePath = "Fundamentals/Projects/Project 1/save_file.txt"
+saveFilePath = "Projects/Project 1/save_file.txt"
 playerData = {
     "NAME" : "",
     "HEALTH" : 100,
