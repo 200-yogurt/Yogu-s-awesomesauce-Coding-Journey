@@ -1,9 +1,3 @@
-# Read Obsidian notes to know what to do next!!!!
-
-
-
-
-
 # -- Importing Modules
 import os
 import time
@@ -11,16 +5,17 @@ import random
 
 # -- Variables & Misc. Functions
 isRunning = True
-saveFilePath = "Projects/Project 1/save_file.txt"
+saveFilePath = "Projects/RPG Prototype/save_file.txt"
 playerData = {
     "NAME" : "",
     "HEALTH" : 100,
-    "GOLD" : 0
+    "GOLD" : 0,
+    "INVENTORY" : []
 }
 speed = {
-    "fast" : 0.5,
-    "moderate" : 1,
-    "slow" : 2.5
+    "fast" : 0.7,
+    "moderate" : 1.5,
+    "slow" : 2.25
 }
 def loading_time(text, amount):
     print(text)
@@ -30,13 +25,13 @@ def loading_time(text, amount):
 # - Starting functions
 def intro_cutscene(type):
     if "new" in type:
-        print("- WELCOME . . . TO THIS EXCITING NEWADVENTURE \n")
-        loading_time("", speed["fast"])
+        print("- WELCOME . . . TO THIS EXCITING NEW ADVENTURE \n")
+        loading_time("", speed["moderate"])
         print("- BEFORE WE CONTINUE, I'D LIKE TO KNOW MORE ABOUT YOU...\n")
-        loading_time("", speed["fast"])
+        loading_time("", speed["moderate"])
 
         playerData["NAME"] = input("* * Type your username: * *\n")
-        loading_time("", speed["fast"])
+        loading_time("", speed["moderate"])
 
         print("     EXCELLENT . . . \n- SHALL WE CONTINUE?")
         loading_time("", speed["slow"])
@@ -64,7 +59,7 @@ def load_save_data():
 
 # - Menu functions
 def display_stats():
-    print("- HAVE A PEEK AT YOUR STATS . . .\n\n")
+    print("- HAVE A PEEK AT YOUR STATS . . .\n")
     loading_time("", speed["fast"])
 
     for key, value in playerData.items():
@@ -77,19 +72,18 @@ def rest():
         playerData["HEALTH"] += restHealAmount 
         playerData["GOLD"] = playerData["GOLD"] - restGoldCost 
 
-        print("Succesfully Rested")
+        print("\nSuccesfully Rested")
     else:
         print("- YOU DON'T SEEM TO HAVE ENOUGH RESOURCES, ADVENTURER...")
 def explore():
     def find_gold():
-        print("You explored in search for Gold and...")
+        print("\nYou explored in search for Gold and...")
         loading_time("", speed["slow"])
 
         randomNum = random.randint(0, 50)
 
         if randomNum > 0:
             playerData["GOLD"] += randomNum
-            print(playerData["GOLD"])
 
             print("You found Gold!")
             loading_time("", speed["fast"])
@@ -99,14 +93,13 @@ def explore():
             loading_time("", speed["moderate"])
             print("- . . . UNLUCKY")
     def lose_health():
-        print("You explored in the wilderness and...")
+        print("\nYou explored in the wilderness and...")
         loading_time("", speed["slow"])
 
         randomNum = random.randint(0, playerData["HEALTH"])
 
         if randomNum > 0:
             playerData["HEALTH"] -= randomNum
-            print(playerData["HEALTH"])
 
             print("You got attacked by a creature!")
             loading_time("", speed["fast"])
@@ -114,19 +107,18 @@ def explore():
         else:
             print("Nothing happened")
     def healing_herb():
-        print("You explored in the wilderness and...")
+        print("\nYou explored in the wilderness and...")
         loading_time("", speed["slow"])
 
         randomNum = round(random.uniform(1, playerData["HEALTH"] * 0.87))
 
         playerData["HEALTH"] += randomNum
-        print(playerData["HEALTH"])
 
         print("You found a Healing Herb!")
         loading_time("", speed["fast"])
         print(f"- CONGRATULATIONS ADVENTURER, YOU HAVE GAINED {randomNum} HP")
     def nothing_happens():
-        print("You explored...")
+        print("\nYou explored...")
         loading_time("", speed["slow"])
         print("but nothing relevant happened")
 
@@ -159,6 +151,7 @@ def quit():
     saveChoice = True
     while saveChoice:
         choice = input("Save Before Quitting?   (y/n)\n").strip().lower()
+        loading_time("", speed["slow"])
 
         if "y" in choice:
             with open(saveFilePath, "w") as file:
@@ -207,7 +200,7 @@ def player_status():
 # - Main functions
 def menu_loop():
     print(f"""
-- WELCOME TO THE MENU, {playerData["NAME"]}\n- WHAT WOULD YOU LIKE TO DO?
+- WELCOME TO THE MENU, {playerData["NAME"]}
 
     1- View Stats
     2- Rest (costs 10$)
@@ -217,7 +210,7 @@ def menu_loop():
 
 - WHAT DO YOU DESIRE THIS TIME, ADVENTURER?
           """)
-    loading_time("", speed["moderate"])
+    loading_time("", speed["fast"])
 
     choice = input("Please choose a number between 1 and 5 in order to continue: \n").strip()
     if choice == "1":

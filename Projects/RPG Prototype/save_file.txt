@@ -1,3 +1,4 @@
-NAME :    Yogu09
-HEALTH :    186
-GOLD :    141
+NAME :    xXYogu09Xx
+HEALTH :    238
+GOLD :    11
+INVENTORY :    []
