@@ -1,3 +1,0 @@
-NAME :    Yogu09
-HEALTH :    186
-GOLD :    141
