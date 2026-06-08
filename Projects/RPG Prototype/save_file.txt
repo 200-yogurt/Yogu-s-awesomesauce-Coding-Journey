@@ -1,4 +1,0 @@
-NAME :    xXYogu09Xx
-HEALTH :    263
-GOLD :    23
-INVENTORY :    []
