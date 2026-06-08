@@ -3,8 +3,7 @@ from Systems.utils import narrate
 from Systems.explore_system import explore
 
 def display_stats():
-    print("- HAVE A PEEK AT YOUR STATS . . .\n")
-    narrate("", speed["fast"])
+    narrate("- HAVE A PEEK AT YOUR STATS . . .\n", speed["fast"])
 
     for key, value in playerData.items():
         print(f"{key} : {value}")
@@ -21,7 +20,7 @@ def rest():
         print("- YOU DON'T SEEM TO HAVE ENOUGH RESOURCES, ADVENTURER...")
 def save_progress():
     choice = input(f"- ARE YOU SURE YOU WANT TO REWRITE YOUR SAVE, ADVENTURER?  (y/n)\n").strip().lower()
-    narrate("", speed["moderate"])
+    narrate("Loading. . .", speed["slow"])
 
     if "y" in choice:
         with open(saveFilePath, "w") as file:
@@ -33,13 +32,11 @@ def save_progress():
         print("Aborted Save File Rewritting")
     else:
         print("Invalid Option")
-    
-    print()
 def quit():
     saveChoice = True
     while saveChoice:
         choice = input("Save Before Quitting?   (y/n)\n").strip().lower()
-        narrate("", speed["slow"])
+        narrate("Loading. . .", speed["slow"])
 
         if "y" in choice:
             with open(saveFilePath, "w") as file:
@@ -53,11 +50,10 @@ def quit():
         else:
             print("Invalid Option, try again")
         
-        narrate("", speed["slow"])
+        narrate("Loading. . .", speed["slow"])
 
-    print("- UNTIL NEXT TIME, ADVENTURER")
-    narrate("", speed["moderate"])
-    print("\n\n  .  .  .  Terminating Program  .  .  . \n\n")
+    narrate("- UNTIL NEXT TIME, ADVENTURER", speed["slow"])
+    narrate("\n\n  .  .  .  Terminating Program  .  .  . \n\n", speed["slow"])
 
     exit()
 
@@ -74,7 +70,7 @@ def menu_loop():
 
 - WHAT DO YOU DESIRE THIS TIME, ADVENTURER?
           """)
-    narrate("", speed["fast"])
+    narrate("Loading. . .", speed["fast"])
 
     choice = input("Please choose a number between 1 and 5 in order to continue: \n").strip()
     if choice == "1":
