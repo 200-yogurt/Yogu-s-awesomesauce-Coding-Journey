@@ -44,13 +44,12 @@ def quit():
                     file.write(f"{key} :    {value}\n")
 
             saveChoice = False
-            print("Saved Succesfully")
+            narrate("Saved Successfully", speed["fast"])
         elif "n" in choice:
             saveChoice = False
+            narrate("Aborted Saving Process", speed["fast"])
         else:
             print("Invalid Option, try again")
-        
-        narrate("Loading. . .", speed["slow"])
 
     narrate("- UNTIL NEXT TIME, ADVENTURER", speed["slow"])
     narrate("\n\n  .  .  .  Terminating Program  .  .  . \n\n", speed["slow"])
