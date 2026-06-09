@@ -2,6 +2,13 @@ import os
 from config import *
 from Systems.utils import narrate
 
+def is_player_alive():
+    if playerData["HEALTH"] > 0:
+        isAlive = True
+    else:
+        isAlive = False
+
+    return isAlive
 def game_over():
     narrate(".....", speed["fast"])
     narrate("- IT SEEMS LIKE WE LOST YOU... \n", speed["moderate"])
@@ -20,10 +27,3 @@ def game_over():
         narrate(". . .", speed["moderate"])
         print("But aren't you dead?")
     narrate("", speed["slow"])
-def player_status():
-    if playerData["HEALTH"] > 0:
-        isAlive = True
-    else:
-        isAlive = False
-
-    return isAlive
