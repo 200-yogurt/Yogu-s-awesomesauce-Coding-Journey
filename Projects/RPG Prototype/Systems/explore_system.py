@@ -1,4 +1,3 @@
-# Comment test
 import random
 from config import *
 from Systems.utils import narrate
