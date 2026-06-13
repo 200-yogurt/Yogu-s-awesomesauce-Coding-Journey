@@ -3,7 +3,7 @@ from config import *
 from Systems.utils import narrate
 
 def is_player_alive():
-    if playerData["HEALTH"] > 0:
+    if playerData["stats"]["HEALTH"] > 0:
         isAlive = True
     else:
         isAlive = False
@@ -12,7 +12,7 @@ def is_player_alive():
 def game_over():
     narrate(".....", speed["fast"])
     narrate("- IT SEEMS LIKE WE LOST YOU... \n", speed["moderate"])
-    print(f"- {playerData["NAME"]}! IT WAS NICE TO MEET YOU!")
+    print(f"- {playerData["stats"]["NAME"]}! IT WAS NICE TO MEET YOU!")
     narrate(".....", speed["moderate"])
 
     narrate("\n\n  .  .  .  Game Over  .  .  . \n\n", speed["slow"])
