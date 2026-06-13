@@ -7,7 +7,9 @@ playerData = {
         "HEALTH" : 100,
         "GOLD" : 0,
     },
-    "inventory" : []
+    "inventory" : [
+        "Test Item"
+    ]
     
 }
 speed = {

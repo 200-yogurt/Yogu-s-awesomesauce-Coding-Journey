@@ -12,7 +12,7 @@ def display_inventory():
     narrate("- HAVE A LOOK AT YOUR INVENTORY . . .\n", speed["fast"])
 
     for value in playerData["inventory"]:
-        print(f"{value}\n")
+        print(f"{value}")
 
 
 def rest():
